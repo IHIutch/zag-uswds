@@ -1,0 +1,18 @@
+{
+  "name": "vanilla-ts",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@uswds-tailwind/vanilla-compat": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "vite": "^6.2.1"
+  }
+}

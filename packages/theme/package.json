@@ -1,0 +1,24 @@
+{
+  "name": "theme",
+  "version": "1.0.0",
+  "description": "A Tailwind CSS theme package for UI components.",
+  "main": "src/index.css",
+  "scripts": {
+    "build": "tailwindcss build src/index.css -o dist/index.css",
+    "publish": "npm publish"
+  },
+  "keywords": [
+    "tailwind",
+    "theme",
+    "css"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.6",
+    "autoprefixer": "^10.4.2"
+  }
+}

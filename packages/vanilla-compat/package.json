@@ -1,0 +1,20 @@
+{
+  "name": "@uswds-tailwind/vanilla-compat",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@uswds-tailwind/modal-compat": "workspace:*",
+    "@zag-js/core": "^1.5.0",
+    "@zag-js/store": "^1.5.0",
+    "@zag-js/types": "^1.5.0",
+    "@zag-js/utils": "^1.5.0",
+    "nanoid": "^5.1.5"
+  }
+}
