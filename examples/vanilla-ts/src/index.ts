@@ -1,4 +1,4 @@
-import { modalInit } from '@uswds-tailwind/vanilla-compat';
+import { modalInit } from '@uswds-tailwind/compat';
 
 document.addEventListener('DOMContentLoaded', () => {
   modalInit()

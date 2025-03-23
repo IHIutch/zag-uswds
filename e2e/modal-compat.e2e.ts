@@ -19,17 +19,6 @@ test.describe('Modal Component Tests', () => {
         await page.close();
     })
 
-    // test('Builds the modal HTML', async ({ page }) => {
-    //     const modalWrapper = getPositionerEl(page);
-    //     const modalWindow = getContentEl(page);
-    //     const overlay = getBackdropEl(page);
-
-    //     await expect(modalWrapper).toBeVisible();
-    //     await expect(modalWindow).toHaveAttribute('tabindex', '-1');
-    //     await expect(modalWrapper).toHaveAttribute('role', 'dialog');
-    //     await expect(overlay).toBeVisible();
-    // });
-
     test('Opens the modal when the open button is clicked', async ({ page }) => {
         const triggerEl = getTriggerEl(page);
         const contentEl = getContentEl(page);

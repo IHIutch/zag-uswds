@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@uswds-tailwind/vanilla-compat": "workspace:*"
+    "@uswds-tailwind/compat": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.8.2",

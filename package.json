@@ -4,7 +4,8 @@
   "workspaces": [
     "apps/*",
     "packages/machines/*",
-    "packages/theme"
+    "packages/theme",
+    "packages/compat"
   ],
   "scripts": {
     "build": "turbo run build",

@@ -27,10 +27,6 @@ export class Modal extends Component<modal.Props, modal.Api> {
         this.renderBackdrop(this.backdrop)
         this.renderContent(this.content)
 
-        if (this.title)
-            this.renderTitle(this.title)
-        if (this.description)
-            this.renderDescription(this.description)
         this.closeTriggers.forEach((closeTriggerEl) => {
             this.renderCloseTrigger(closeTriggerEl)
         })
@@ -65,14 +61,6 @@ export class Modal extends Component<modal.Props, modal.Api> {
         return contentEl
     }
 
-    private get title() {
-        return this.positioner.querySelector<HTMLElement>(`[data-part="modal-title"]`)
-    }
-
-    private get description() {
-        return this.positioner.querySelector<HTMLElement>(`[data-part="modal-description"]`)
-    }
-
     private get closeTriggers() {
         return Array.from(this.content.querySelectorAll<HTMLButtonElement>(`[data-part="modal-close-trigger"]`))
     }
@@ -87,14 +75,6 @@ export class Modal extends Component<modal.Props, modal.Api> {
 
     private renderContent(contentEl: HTMLElement) {
         spreadProps(contentEl, this.api.getContentProps())
-    }
-
-    private renderTitle(titleEl: HTMLElement) {
-        spreadProps(titleEl, this.api.getTitleProps())
-    }
-
-    private renderDescription(descriptionEl: HTMLElement) {
-        spreadProps(descriptionEl, this.api.getDescriptionProps())
     }
 
     private renderCloseTrigger(closeTriggerEl: HTMLButtonElement) {

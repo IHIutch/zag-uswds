@@ -95,28 +95,18 @@ export interface ModalProps
     onOpenChange?: ((details: OpenChangeDetails) => void) | undefined
 }
 
-type PropsWithDefault =
-    | "closeOnInteractOutside"
-    | "closeOnEscape"
-    | "role"
-    | "modal"
-    | "trapFocus"
-    | "restoreFocus"
-    | "preventScroll"
-    | "initialFocusEl"
-
 export interface ModalSchema {
-    props: RequiredBy<ModalProps, PropsWithDefault>
-    state: "open" | "closed"
-    context: {
-        rendered: { title: boolean; description: boolean }
-    }
-    guard: "isOpenControlled"
-    effect: "trackDismissableElement" | "preventScroll" | "trapFocus" | "hideContentBelow"
-    action: "checkRenderedElements" | "syncZIndex" | "invokeOnClose" | "invokeOnOpen" | "toggleVisibility"
-    event: {
-        type: "CONTROLLED.OPEN" | "CONTROLLED.CLOSE" | "OPEN" | "CLOSE" | "TOGGLE"
-    }
+    props: {
+        role: string;
+        modal: boolean;
+        closeOnEscape: boolean;
+        closeOnInteractOutside: boolean;
+        open?: boolean;
+    };
+    state: "open" | "closed";
+    context: {};
+    action: "focusContent" | "hideNonModals" | "restoreNonModals";
+    event: { type: "OPEN" | "CLOSE" | "TOGGLE" };
 }
 
 export type ModalService = Service<ModalSchema>
@@ -141,7 +131,5 @@ export interface ModalApi<T extends PropTypes = PropTypes> {
     getBackdropProps(): T["element"]
     getPositionerProps(): T["element"]
     getContentProps(): T["element"]
-    getTitleProps(): T["element"]
-    getDescriptionProps(): T["element"]
     getCloseTriggerProps(): T["button"]
 }
