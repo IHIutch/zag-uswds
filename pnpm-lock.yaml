@@ -61,6 +61,36 @@ importers:
         specifier: ^5.1.5
         version: 5.1.5
 
+  packages/machines/modal:
+    dependencies:
+      '@zag-js/anatomy':
+        specifier: ^1.5.0
+        version: 1.5.0
+      '@zag-js/aria-hidden':
+        specifier: ^1.5.0
+        version: 1.5.0
+      '@zag-js/core':
+        specifier: ^1.5.0
+        version: 1.5.0
+      '@zag-js/dismissable':
+        specifier: ^1.5.0
+        version: 1.5.0
+      '@zag-js/dom-query':
+        specifier: ^1.5.0
+        version: 1.5.0
+      '@zag-js/focus-trap':
+        specifier: ^1.5.0
+        version: 1.5.0
+      '@zag-js/remove-scroll':
+        specifier: ^1.5.0
+        version: 1.5.0
+      '@zag-js/types':
+        specifier: ^1.5.0
+        version: 1.5.0
+      '@zag-js/utils':
+        specifier: ^1.5.0
+        version: 1.5.0
+
   packages/machines/modal-compat:
     dependencies:
       '@zag-js/anatomy':
