@@ -14,10 +14,11 @@
     "publish": "turbo run publish",
     "test:e2e": "playwright test"
   },
+  "packageManager": "pnpm@9.5.0",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
     "playwright": "^1.39.0",
-    "turbo": "^1.0.0"
+    "turbo": "^2.4.4"
   },
   "dependencies": {
     "tsup": "^8.4.0",

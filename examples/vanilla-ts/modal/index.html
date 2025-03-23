@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
   </head>
-  <body style="padding: 40px">
+  <body>
     <h1>Modal</h1>
+
+    <div aria-hidden="true" class="usa-sr-only" id="stays-hidden">
+      Needs to stay set to aria-hidden="true" when modals are toggled
+    </div>
 
     <div>
       <button
@@ -32,7 +36,16 @@
         data-part="modal-backdrop"
         data-value="modal"
         class="bg-black/50 fixed inset-0 size-full"
-      ></div>
+        style="
+          position: fixed;
+          height: 100%;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 1000;
+        "
+      >
+        l
+      </div>
       <div
         data-part="modal-positioner"
         data-value="modal"

@@ -10,6 +10,7 @@ export default defineConfig({
         cwd: "./examples/vanilla-ts",
         command: "PORT=3000 pnpm dev",
         url: "http://localhost:5173",
+        reuseExistingServer: true,
     },
     use: {
         baseURL: 'http://localhost:5173', // Replace with the actual base URL

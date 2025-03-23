@@ -17,7 +17,7 @@ export const machine = createMachine<ModalSchema>({
             closeOnInteractOutside: true,
             closeOnEscape: true,
             restoreFocus: true,
-            initialFocusEl: () => dom.getCloseTriggerEl(scope),
+            initialFocusEl: () => dom.getContentEl(scope),
             ...props,
         };
     },

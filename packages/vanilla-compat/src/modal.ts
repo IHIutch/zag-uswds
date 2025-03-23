@@ -9,10 +9,10 @@ import type { ModalSchema } from '@uswds-tailwind/modal-compat';
 export class Modal extends Component<modal.Props, modal.Api> {
     initMachine(context: modal.Props): VanillaMachine<ModalSchema> {
         return new VanillaMachine(modal.machine, {
+            ...context,
             role: this.content.getAttribute('role') === 'alertmodal' ? 'alertmodal' : 'modal',
             closeOnEscape: !this.content.hasAttribute('data-static'),
             closeOnInteractOutside: !this.content.hasAttribute('data-static'),
-            ...context,
         })
     }
 
