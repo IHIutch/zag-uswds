@@ -9,7 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@uswds-tailwind/compat": "workspace:*"
+    "@fontsource-variable/open-sans": "^5.2.5",
+    "@fontsource-variable/public-sans": "^5.2.5",
+    "@fontsource-variable/roboto-mono": "^5.2.5",
+    "@fontsource-variable/source-sans-3": "^5.2.6",
+    "@fontsource/merriweather": "^5.2.6",
+    "@tailwindcss/vite": "^4.1.3",
+    "@uswds-tailwind/compat": "workspace:*",
+    "@uswds-tailwind/theme": "workspace:*",
+    "tailwindcss": "^4.1.3"
   },
   "devDependencies": {
     "typescript": "^5.8.2",
