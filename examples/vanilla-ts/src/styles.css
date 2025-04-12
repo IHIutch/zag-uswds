@@ -9,4 +9,4 @@
 @import "@fontsource/merriweather/900.css";
 
 @import "tailwindcss";
-@import "@uswds-tailwind/theme/dist/index.css";
+@import "@uswds-tailwind/theme";

@@ -9,7 +9,7 @@
     "theme",
     "css"
   ],
-  "main": "src/index.css",
+  "style": "src/index.css",
   "scripts": {
     "build": "tailwindcss -i ./src/index.css -o ./dist/index.css"
   },
