@@ -1,23 +1,23 @@
 {
-    "name": "@uswds-tailwind/modal",
-    "version": "1.0.0",
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
-    "scripts": {
-        "build": "tsup",
-        "lint": "eslint src",
-        "typecheck": "tsc --noEmit"
-    },
-    "dependencies": {
-        "@zag-js/anatomy": "^1.5.0",
-        "@zag-js/aria-hidden": "^1.5.0",
-        "@zag-js/core": "^1.5.0",
-        "@zag-js/dismissable": "^1.5.0",
-        "@zag-js/dom-query": "^1.5.0",
-        "@zag-js/focus-trap": "^1.5.0",
-        "@zag-js/remove-scroll": "^1.5.0",
-        "@zag-js/types": "^1.5.0",
-        "@zag-js/utils": "^1.5.0"
-    }
+  "name": "@uswds-tailwind/modal",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@zag-js/anatomy": "^1.5.0",
+    "@zag-js/aria-hidden": "^1.5.0",
+    "@zag-js/core": "^1.5.0",
+    "@zag-js/dismissable": "^1.5.0",
+    "@zag-js/dom-query": "^1.5.0",
+    "@zag-js/focus-trap": "^1.5.0",
+    "@zag-js/remove-scroll": "^1.5.0",
+    "@zag-js/types": "^1.5.0",
+    "@zag-js/utils": "^1.5.0"
+  }
 }

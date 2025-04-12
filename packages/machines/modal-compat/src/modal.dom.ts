@@ -1,4 +1,4 @@
-import type { Scope } from "@zag-js/core"
+import type { Scope } from '@zag-js/core'
 
 export const getPositionerId = (ctx: Scope) => ctx.ids?.positioner ?? `dialog:${ctx.id}:positioner`
 export const getBackdropId = (ctx: Scope) => ctx.ids?.backdrop ?? `dialog:${ctx.id}:backdrop`
@@ -12,10 +12,12 @@ export const getBackdropEl = (ctx: Scope) => ctx.getById(getBackdropId(ctx))
 export const getTriggerEl = (ctx: Scope) => ctx.getById(getTriggerId(ctx))
 export const getCloseTriggerEl = (ctx: Scope) => ctx.getById(getCloseTriggerId(ctx))
 
-export const getNonModals = (ctx: Scope) =>
-    Array.from(ctx.getDoc().body.children).filter(
-        (el) => !el.classList.contains("dialog-wrapper") && !el.hasAttribute("aria-hidden")
-    )
+export function getNonModals(ctx: Scope) {
+  return Array.from(ctx.getDoc().body.children).filter(
+    el => !el.classList.contains('dialog-wrapper') && !el.hasAttribute('aria-hidden'),
+  )
+}
 
-export const getHiddenNonModals = (ctx: Scope) =>
-    Array.from(ctx.getDoc().querySelectorAll("[aria-hidden='true']"))
+export function getHiddenNonModals(ctx: Scope) {
+  return Array.from(ctx.getDoc().querySelectorAll('[aria-hidden=\'true\']'))
+}

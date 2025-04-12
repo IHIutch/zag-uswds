@@ -1,4 +1,4 @@
-import type { Scope } from "@zag-js/core"
+import type { Scope } from '@zag-js/core'
 
 export const getPositionerId = (ctx: Scope) => ctx.ids?.positioner ?? `dialog:${ctx.id}:positioner`
 export const getBackdropId = (ctx: Scope) => ctx.ids?.backdrop ?? `dialog:${ctx.id}:backdrop`
