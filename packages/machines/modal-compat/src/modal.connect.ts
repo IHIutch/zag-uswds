@@ -22,6 +22,7 @@ export function connect<T extends PropTypes>(
         'aria-haspopup': 'dialog',
         'aria-expanded': open,
         'aria-controls': dom.getContentId(scope),
+        'data-state': open ? 'open' : 'closed',
         onClick() {
           send({ type: 'TOGGLE' })
         },
@@ -35,19 +36,24 @@ export function connect<T extends PropTypes>(
         'hidden': !open,
         'tabIndex': -1,
         'aria-modal': true,
+        'data-state': open ? 'open' : 'closed',
       })
     },
     getPositionerProps() {
       return normalize.element({
         ...parts.positioner.attrs,
         id: dom.getPositionerId(scope),
+        style: {
+          pointerEvents: open ? undefined : 'none',
+        },
       })
     },
     getBackdropProps() {
       return normalize.element({
         ...parts.backdrop.attrs,
-        id: dom.getBackdropId(scope),
-        hidden: !open,
+        'id': dom.getBackdropId(scope),
+        'hidden': !open,
+        'data-state': open ? 'open' : 'closed',
       })
     },
     getCloseTriggerProps() {
