@@ -1,14 +1,13 @@
-import { VanillaMachine } from "./lib/machine"
-
+import type { VanillaMachine } from './lib/machine'
 
 interface ComponentInterface<Api> {
   rootEl: HTMLElement
   machine: VanillaMachine<any>
   api: Api
 
-  init(): void
-  destroy(): void
-  render(): void
+  init: () => void
+  destroy: () => void
+  render: () => void
 }
 
 export abstract class Component<Props, Api> implements ComponentInterface<Api> {
@@ -17,7 +16,8 @@ export abstract class Component<Props, Api> implements ComponentInterface<Api> {
   api: Api
 
   constructor(rootEl: HTMLElement | null, props: Props) {
-    if (!rootEl) throw new Error("Root element not found")
+    if (!rootEl)
+      throw new Error('Root element not found')
     this.rootEl = rootEl
     this.machine = this.initMachine(props)
     this.api = this.initApi()
