@@ -10,9 +10,10 @@ export class Modal extends Component<modal.Props, modal.Api> {
   initMachine(context: modal.Props): VanillaMachine<ModalSchema> {
     return new VanillaMachine(modal.machine, {
       ...context,
-      role: this.content.getAttribute('role') === 'alertmodal' ? 'alertmodal' : 'modal',
+      role: this.content.getAttribute('role') === 'alertmodal' ? 'alertmodal' : 'dialog',
       closeOnEscape: !this.content.hasAttribute('data-static'),
       closeOnInteractOutside: !this.content.hasAttribute('data-static'),
+      initialFocusEl: () => this.closeTriggers[0] || this.content,
     })
   }
 

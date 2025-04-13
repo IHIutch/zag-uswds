@@ -60,6 +60,7 @@ export function connect<T extends PropTypes>(
       return normalize.button({
         ...parts.closeTrigger.attrs,
         'aria-label': 'Close dialog',
+        'id': dom.getCloseTriggerId(scope),
         onClick() {
           send({ type: 'CLOSE' })
         },

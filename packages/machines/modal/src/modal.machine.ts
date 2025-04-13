@@ -10,7 +10,7 @@ import * as dom from './modal.dom'
 export const machine = createMachine<ModalSchema>({
   props({ props, scope }) {
     return {
-      role: 'modal',
+      role: 'dialog',
       modal: true,
       trapFocus: true,
       preventScroll: true,

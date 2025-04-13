@@ -76,9 +76,9 @@ export interface ModalProps
   'aria-label'?: string | undefined
   /**
    * The modal's role
-   * @default "modal"
+   * @default "dialog"
    */
-  'role'?: 'modal' | 'alertmodal' | undefined
+  'role'?: 'dialog' | 'alertdialog' | undefined
   /**
    * The controlled open state of the modal
    */

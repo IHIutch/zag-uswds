@@ -1,6 +1,6 @@
 import type { Machine, Service } from '@zag-js/core'
 import type { DismissableElementHandlers, PersistentElementOptions } from '@zag-js/dismissable'
-import type { CommonProperties, DirectionProperty, MaybeElement, PropTypes } from '@zag-js/types'
+import type { CommonProperties, DirectionProperty, MaybeElement, PropTypes, RequiredBy } from '@zag-js/types'
 
 /* -----------------------------------------------------------------------------
  * Callback details
@@ -76,9 +76,9 @@ export interface ModalProps
   'aria-label'?: string | undefined
   /**
    * The modal's role
-   * @default "modal"
+   * @default "dialog"
    */
-  'role'?: 'modal' | 'alertmodal' | undefined
+  'role'?: 'dialog' | 'alertdialog' | undefined
   /**
    * The controlled open state of the modal
    */
@@ -95,14 +95,22 @@ export interface ModalProps
   'onOpenChange'?: ((details: OpenChangeDetails) => void) | undefined
 }
 
+type PropsWithDefault =
+  | 'closeOnInteractOutside'
+  | 'closeOnEscape'
+  | 'role'
+  | 'modal'
+  | 'trapFocus'
+  | 'restoreFocus'
+  | 'preventScroll'
+  | 'initialFocusEl'
+
 export interface ModalSchema {
-  props: {
-    role: string
-    modal: boolean
-    closeOnEscape: boolean
-    closeOnInteractOutside: boolean
-    open?: boolean
+  props: RequiredBy<ModalProps, PropsWithDefault>
+  context: {
+    rendered: { title: boolean, description: boolean }
   }
+  effect: 'trackDismissableElement' | 'preventScroll' | 'trapFocus' | 'hideContentBelow'
   state: 'open' | 'closed'
   action: 'focusContent' | 'hideNonModals' | 'restoreNonModals'
   event: { type: 'OPEN' | 'CLOSE' | 'TOGGLE' }
