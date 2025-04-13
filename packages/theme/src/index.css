@@ -36,6 +36,25 @@
     --font-verdana: "Verdana", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-verdana-multiplier: 0.99;
 
+    --container-card: 160px;
+    --container-card-lg: 240px;
+    --container-mobile: 320px;
+    --container-mobile-lg: 480px;
+    --container-tablet: 640px;
+    --container-tablet-lg: 880px;
+    --container-desktop: 1024px;
+    --container-desktop-lg: 1200px;
+    --container-widescreen: 1400px;
+
+    --breakpoint-card: 160px;
+    --breakpoint-card-lg: 240px;
+    --breakpoint-mobile: 320px;
+    --breakpoint-mobile-lg: 480px;
+    --breakpoint-tablet: 640px;
+    --breakpoint-tablet-lg: 880px;
+    --breakpoint-desktop: 1024px;
+    --breakpoint-desktop-lg: 1200px;
+    --breakpoint-widescreen: 1400px;
 
     --color-transparent: transparent;
     --color-current: currentColor;

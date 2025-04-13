@@ -10,3 +10,5 @@
 
 @import "tailwindcss";
 @import "@uswds-tailwind/theme";
+
+@plugin './icons.ts';

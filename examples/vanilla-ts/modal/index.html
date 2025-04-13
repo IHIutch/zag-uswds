@@ -10,7 +10,7 @@
   <body class="font-open-sans">
     <h1>Modal</h1>
 
-    <div aria-hidden="true" class="usa-sr-only text-base" id="stays-hidden">
+    <div aria-hidden="true" class="sr-only text-base" id="stays-hidden">
       Needs to stay set to aria-hidden="true" when modals are toggled
     </div>
 
@@ -26,7 +26,7 @@
       <div
         data-part="modal-backdrop"
         data-value="modal"
-        class="fixed z-40 inset-0 bg-black/70 animate-in ease-in-out duration-150 fade-in"
+        class="hidden data-[state=open]:block fixed z-40 inset-0 bg-black/70 animate-in ease-in-out duration-150 fade-in"
       ></div>
       <div
         data-part="modal-positioner"
@@ -35,57 +35,19 @@
       >
         <div
           data-part="modal-content"
-          class="@container relative w-full max-w-lg rounded-lg bg-white shadow-lg"
-          hidden
+          class="@container relative w-full max-w-lg rounded-lg bg-white shadow-lg hidden data-[state=open]:block"
         >
           <div class="p-8 pt-10">
-            <h2 data-part="modal-title" class="text-xl font-medium">
-              Modal title
-            </h2>
-            <p data-part="modal-description">Modal description</p>
-            <button
-              type="button"
-              class="
-                text-black
-                flex
-                justify-center
-                items-center
-                bg-gray-100
-                hover:bg-gray-200
-                size-8
-                rounded
-                absolute
-                top-3
-                right-3
-              "
-              data-part="modal-close-trigger"
-            >
-              <span class="sr-only">Close modal</span>
-              <div
-                aria-hidden="true"
-                class="i-material-symbols:close size-6"
-              ></div>
-            </button>
-          </div>
-          <div class="p-4">
-            <p>Woo-hoo, you're reading this text in a modal!</p>
-          </div>
-          <div class="p-4 flex justify-end">
-            <button
-              type="button"
-              class="
-                text-black
-                flex
-                items-center
-                bg-gray-100
-                hover:bg-gray-200
-                h-10
-                px-3
-                rounded
-              "
-              data-part="modal-close-trigger"
-            >
-              Close
+            <h2 data-part="modal-title" class="text-xl font-bold font-merriweather">Are you sure you want to continue?</h2>
+            <p data-part="modal-description" class="mt-2 text-gray-600">You have unsaved changes that will be lost.</p>
+            <div class="mt-6">
+              <div class="flex flex-col @mobile-lg:flex-row gap-2" role="group">
+                <button data-part="modal-close-trigger" type="button" class="rounded font-bold leading-none text-white px-5 py-3 bg-blue-60v hover:bg-blue-warm-70v active:bg-blue-warm-80v focus:outline-4 focus:outline-offset-4 focus:outline-blue-40v">Continue without saving</button>
+                <button data-part="modal-close-trigger" type="button" class="p-3 underline leading-none text-blue-60v bg-transparent hover:text-blue-warm-70v active:text-blue-warm-80v focus:outline-4 focus:outline-offset-4 focus:outline-blue-40v">Go back</button>
+              </div>
+            </div>
+            <button data-part="modal-close-trigger" type="button" class="absolute top-0 right-0 p-1 text-gray-50 bg-transparent rounded hover:text-gray-90 active:text-gray-90 focus:outline-4 focus:outline-offset-4 focus:outline-blue-40v" aria-label="Close this window">
+              <div class="icon-[material-symbols--close] size-8 mt-0.5 mr-0.5 align-middle"></div>
             </button>
           </div>
         </div>
