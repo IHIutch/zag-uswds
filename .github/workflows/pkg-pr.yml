@@ -29,4 +29,4 @@ jobs:
         run: pnpm turbo run build
 
       - name: Upload package
-        run: pnpm dlx pkg-pr-new publish './packages/compat'
+        run: pnpm dlx pkg-pr-new publish './packages/compat' './packages/theme'

@@ -1,15 +1,10 @@
 {
   "name": "@uswds-tailwind/theme",
-  "version": "1.0.0",
-  "description": "A Tailwind CSS theme package for UI components.",
-  "author": "Your Name",
-  "license": "MIT",
-  "keywords": [
-    "tailwind",
-    "theme",
-    "css"
+  "version": "0.0.1",
+  "style": "dist/index.css",
+  "files": [
+    "dist"
   ],
-  "style": "src/index.css",
   "scripts": {
     "build": "tailwindcss -i ./src/index.css -o ./dist/index.css"
   },

@@ -17,7 +17,7 @@
     "@iconify/json": "^2.2.326",
     "@iconify/tailwind": "^1.2.0",
     "@tailwindcss/vite": "^4.1.3",
-    "@uswds-tailwind/compat": "workspace:*",
+    "@uswds-tailwind/compat": "https://pkg.pr.new/IHIutch/zag-uswds/@uswds-tailwind/compat@8ca3831",
     "@uswds-tailwind/theme": "workspace:*",
     "tailwindcss": "^4.1.3"
   },
