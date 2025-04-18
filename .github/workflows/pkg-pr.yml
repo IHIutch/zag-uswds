@@ -1,0 +1,35 @@
+name: pkg.pr.new (compat)
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/compat
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: . # install from monorepo root
+
+      - name: Build with Turbo
+        run: pnpm turbo run build
+
+      - name: Upload package
+        run: npx pkg-pr-new publish './packages/compat'
