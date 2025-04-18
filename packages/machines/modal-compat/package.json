@@ -1,6 +1,7 @@
 {
   "name": "@uswds-tailwind/modal-compat",
-  "version": "1.0.0",
+  "type": "module",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
