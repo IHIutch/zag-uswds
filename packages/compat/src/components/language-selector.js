@@ -1,11 +1,10 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const toggle = require("../../uswds-core/src/js/utils/toggle");
-const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
-const accordion = require("../../usa-accordion/src/index");
-
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import { keymap } from "receptor";
+import behavior from "../utils/behavior";
+import toggle from "../utils/toggle";
+import FocusTrap from "../utils/focus-trap";
+import accordion from "./accordion";
+import { CLICK } from "../events";
+import { prefix as PREFIX } from "../config";
 
 const BODY = "body";
 const LANGUAGE = `.${PREFIX}-language`;
@@ -102,4 +101,4 @@ languageSelector = behavior(
   },
 );
 
-module.exports = languageSelector;
+export default languageSelector;

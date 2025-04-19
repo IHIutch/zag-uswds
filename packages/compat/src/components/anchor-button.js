@@ -1,5 +1,5 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
+import { keymap } from "receptor";
+import behavior from "../utils/behavior";
 
 const ANCHOR_BUTTON = `a[class*="usa-button"]`;
 
@@ -16,4 +16,4 @@ const anchorButton = behavior({
   },
 });
 
-module.exports = anchorButton;
+export default anchorButton;

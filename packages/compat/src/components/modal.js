@@ -1,7 +1,8 @@
-import behavior from "./utils/behavior";
-import FocusTrap from "./utils/focus-trap";
-import ScrollBarWidth from "./utils/scrollbar-width";
-import selectOrMatches from "./utils/select-or-matches";
+import behavior from "../utils/behavior";
+import FocusTrap from "../utils/focus-trap";
+import ScrollBarWidth from "../utils/scrollbar-width";
+import selectOrMatches from "../utils/select-or-matches";
+import { prefix as PREFIX } from "../config";  
 
 const MODAL_CLASSNAME = `${PREFIX}-modal`;
 const OVERLAY_CLASSNAME = `${MODAL_CLASSNAME}-overlay`;
@@ -386,4 +387,4 @@ modal = behavior(
   },
 );
 
-module.exports = modal;
+export default modal;

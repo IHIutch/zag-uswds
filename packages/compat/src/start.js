@@ -1,8 +1,7 @@
 window.uswdsPresent = true; // GLOBAL variable to indicate that the uswds.js has loaded in the DOM.
 
-const uswds = require("./config");
-
-const components = require("./index");
+import uswds from "./config";
+import * as components from "./index";
 
 uswds.components = components;
 
@@ -20,5 +19,5 @@ if (document.readyState === "loading") {
   initComponents();
 }
 
-exports.default = uswds;
-exports.initComponents = initComponents;
+export default uswds;
+export { initComponents };

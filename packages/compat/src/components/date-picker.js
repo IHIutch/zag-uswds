@@ -1,12 +1,12 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const select = require("../../uswds-core/src/js/utils/select");
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const { CLICK } = require("../../uswds-core/src/js/events");
-const activeElement = require("../../uswds-core/src/js/utils/active-element");
-const isIosDevice = require("../../uswds-core/src/js/utils/is-ios-device");
-const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
+import { keymap } from "receptor";
+import behavior from "../utils/behavior";
+import select from "../utils/select";
+import selectOrMatches from "../utils/select-or-matches";
+import { prefix as PREFIX } from "../config";
+import { CLICK } from "../events";
+import activeElement from "../utils/active-element";
+import isIosDevice from "../utils/is-ios-device";
+import Sanitizer from "../utils/sanitizer";
 
 const DATE_PICKER_CLASS = `${PREFIX}-date-picker`;
 const DATE_PICKER_WRAPPER_CLASS = `${DATE_PICKER_CLASS}__wrapper`;
@@ -666,7 +666,7 @@ const changeElementValue = (el, value = "") => {
  * @param {HTMLElement} el the element within the date picker
  * @returns {DatePickerContext} elements
  */
-const getDatePickerContext = (el) => {
+export const getDatePickerContext = (el) => {
   const datePickerEl = el.closest(DATE_PICKER);
 
   if (!datePickerEl) {
@@ -794,7 +794,7 @@ const enable = (el) => {
  *
  * @param {HTMLElement} el An element within the date picker component
  */
-const isDateInputInvalid = (el) => {
+export const isDateInputInvalid = (el) => {
   const { externalInputEl, minDate, maxDate } = getDatePickerContext(el);
 
   const dateString = externalInputEl.value;
@@ -1360,7 +1360,7 @@ const toggleCalendar = (el) => {
  *
  * @param {HTMLElement} el an element within the date picker
  */
-const updateCalendarIfVisible = (el) => {
+export const updateCalendarIfVisible = (el) => {
   const { calendarEl, inputDate, minDate, maxDate } = getDatePickerContext(el);
   const calendarShown = !calendarEl.hidden;
 
@@ -2280,6 +2280,4 @@ const datePicker = behavior(datePickerEvents, {
   updateCalendarIfVisible,
 });
 
-// #endregion Date Picker Event Delegation Registration / Component
-
-module.exports = datePicker;
+export default datePicker;

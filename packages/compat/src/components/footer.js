@@ -1,6 +1,6 @@
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import behavior from "../utils/behavior";
+import { CLICK } from "../events";
+import { prefix as PREFIX } from "../config";
 
 const SCOPE = `.${PREFIX}-footer--big`;
 const NAV = `${SCOPE} nav`;
@@ -77,7 +77,7 @@ const resize = (event) => {
   toggleHtmlTag(event.matches);
 };
 
-module.exports = behavior(
+const footer = behavior(
   {
     [CLICK]: {
       [BUTTON]: showPanel,
@@ -100,3 +100,5 @@ module.exports = behavior(
     },
   },
 );
+
+export default footer;

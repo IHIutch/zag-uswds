@@ -1,9 +1,9 @@
-const select = require("../../uswds-core/src/js/utils/select");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const toggle = require("../../uswds-core/src/js/utils/toggle");
-const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import select from "../utils/select";
+import behavior from "../utils/behavior";
+import toggle from "../utils/toggle";
+import isElementInViewport from "../utils/is-in-viewport";
+import { CLICK } from "../events";
+import { prefix as PREFIX } from "../config";
 
 const ACCORDION = `.${PREFIX}-accordion, .${PREFIX}-accordion--bordered`;
 const BANNER_BUTTON = `.${PREFIX}-banner__button`;
@@ -97,4 +97,4 @@ const accordion = behavior(
   },
 );
 
-module.exports = accordion;
+export default accordion;

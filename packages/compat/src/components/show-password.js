@@ -1,8 +1,7 @@
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const toggleFormInput = require("../../uswds-core/src/js/utils/toggle-form-input");
-
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import behavior from "../utils/behavior";
+import toggleFormInput from "../utils/toggle-form-input";
+import { CLICK } from "../events";
+import { prefix as PREFIX } from "../config";
 
 const LINK = `.${PREFIX}-show-password`;
 
@@ -11,7 +10,7 @@ function toggle(event) {
   toggleFormInput(this);
 }
 
-module.exports = behavior({
+export default behavior({
   [CLICK]: {
     [LINK]: toggle,
   },

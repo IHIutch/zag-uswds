@@ -11,11 +11,10 @@
     "useDefineForClassFields": true,
     "rootDir": "./src",
     "module": "ESNext",
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
-    /* Linting */
+    "allowJs": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
@@ -26,8 +25,7 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*",
-    "types"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",

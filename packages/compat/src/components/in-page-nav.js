@@ -1,10 +1,10 @@
-const once = require("receptor/once");
-const keymap = require("receptor/keymap");
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const { CLICK } = require("../../uswds-core/src/js/events");
-const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
+import { once } from "receptor";
+import { keymap } from "receptor";
+import selectOrMatches from "../utils/select-or-matches";
+import behavior from "../utils/behavior";
+import { prefix as PREFIX } from "../config";
+import { CLICK } from "../events";
+import Sanitizer from "../utils/sanitizer";
 
 const CURRENT_CLASS = `${PREFIX}-current`;
 const IN_PAGE_NAV_HEADINGS = "h2 h3";
@@ -426,4 +426,4 @@ const inPageNavigation = behavior(
   },
 );
 
-module.exports = inPageNavigation;
+export default inPageNavigation;

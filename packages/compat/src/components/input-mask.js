@@ -1,6 +1,6 @@
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import selectOrMatches from "../utils/select-or-matches";
+import behavior from "../utils/behavior";
+import { prefix as PREFIX } from "../config";
 
 const MASKED_CLASS = `${PREFIX}-masked`;
 const MASKED = `.${MASKED_CLASS}`;
@@ -122,4 +122,4 @@ const inputMask = behavior(inputMaskEvents, {
   },
 });
 
-module.exports = inputMask;
+export default inputMask;

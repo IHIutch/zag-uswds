@@ -1,13 +1,13 @@
-const keymap = require("receptor/keymap");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const select = require("../../uswds-core/src/js/utils/select");
-const toggle = require("../../uswds-core/src/js/utils/toggle");
-const FocusTrap = require("../../uswds-core/src/js/utils/focus-trap");
-const accordion = require("../../usa-accordion/src/index");
-const ScrollBarWidth = require("../../uswds-core/src/js/utils/scrollbar-width");
+import { keymap } from "receptor";
+import behavior from "../utils/behavior";
+import select from "../utils/select";
+import toggle from "../utils/toggle";
+import FocusTrap from "../utils/focus-trap";
+import accordion from "./accordion";
+import ScrollBarWidth from "../utils/scrollbar-width";
 
-const { CLICK } = require("../../uswds-core/src/js/events");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import { CLICK } from "../events";
+import { prefix as PREFIX } from "../config";
 
 const BODY = "body";
 const HEADER = `.${PREFIX}-header`;
@@ -264,4 +264,4 @@ navigation = behavior(
   },
 );
 
-module.exports = navigation;
+export default navigation;

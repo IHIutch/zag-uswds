@@ -1,11 +1,11 @@
-const keymap = require("receptor/keymap");
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const Sanitizer = require("../../uswds-core/src/js/utils/sanitizer");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const { CLICK } = require("../../uswds-core/src/js/events");
+import { keymap } from "receptor";
+import selectOrMatches from "../utils/select-or-matches";
+import behavior from "../utils/behavior";
+import Sanitizer from "../utils/sanitizer";
+import { prefix as PREFIX } from "../config";
+import { CLICK } from "../events";
 
-const COMBO_BOX_CLASS = `${PREFIX}-combo-box`;
+export const COMBO_BOX_CLASS = `${PREFIX}-combo-box`;
 const COMBO_BOX_PRISTINE_CLASS = `${COMBO_BOX_CLASS}--pristine`;
 const SELECT_CLASS = `${COMBO_BOX_CLASS}__select`;
 const INPUT_CLASS = `${COMBO_BOX_CLASS}__input`;
@@ -157,7 +157,7 @@ const enable = (el) => {
  *
  * @param {HTMLElement} _comboBoxEl The initial element of the combo box component
  */
-const enhanceComboBox = (_comboBoxEl) => {
+export const enhanceComboBox = (_comboBoxEl) => {
   const comboBoxEl = _comboBoxEl.closest(COMBO_BOX);
 
   if (comboBoxEl.dataset.enhanced) return;
@@ -899,4 +899,4 @@ const comboBox = behavior(
   },
 );
 
-module.exports = comboBox;
+export default comboBox;

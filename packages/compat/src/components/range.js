@@ -1,7 +1,6 @@
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
+import selectOrMatches from "../utils/select-or-matches";
+import behavior from "../utils/behavior";
+import { prefix as PREFIX } from "../config";
 
 const RANGE_CLASSNAME = `${PREFIX}-range`;
 const RANGE = `.${RANGE_CLASSNAME}`;
@@ -62,4 +61,4 @@ const range = behavior(rangeEvents, {
   updateCallout,
 });
 
-module.exports = range;
+export default range;

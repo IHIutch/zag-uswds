@@ -1,9 +1,9 @@
 // Tooltips
-const keymap = require("receptor/keymap");
-const selectOrMatches = require("../../uswds-core/src/js/utils/select-or-matches");
-const behavior = require("../../uswds-core/src/js/utils/behavior");
-const { prefix: PREFIX } = require("../../uswds-core/src/js/config");
-const isElementInViewport = require("../../uswds-core/src/js/utils/is-in-viewport");
+import { keymap } from "receptor";
+import selectOrMatches from "../utils/select-or-matches";
+import behavior from "../utils/behavior";
+import { prefix as PREFIX } from "../config";
+import isElementInViewport from "../utils/is-in-viewport";
 
 const BODY = "body";
 const TOOLTIP = `.${PREFIX}-tooltip`;
@@ -423,4 +423,4 @@ const tooltip = behavior(
   },
 );
 
-module.exports = tooltip;
+export default tooltip;
