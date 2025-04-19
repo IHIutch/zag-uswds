@@ -1,0 +1,48 @@
+name: Publish to NPM
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm run build
+
+      - name: Publish packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          # Determine tag
+          if [[ "${{ github.event.release.prerelease }}" == "true" ]]; then
+            TAG="alpha"
+          else
+            TAG="latest"
+          fi
+          # Publish each package
+          for pkg in packages/*; do
+            if [ -f "$pkg/package.json" ]; then
+              cd "$pkg"
+              npm publish --access public --tag $TAG || true
+              cd -
+            fi
+          done

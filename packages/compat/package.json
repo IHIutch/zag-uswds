@@ -14,7 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "rolldown -c rolldown.config.ts",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit"
   },
@@ -24,6 +24,10 @@
     "@zag-js/store": "^1.5.0",
     "@zag-js/types": "^1.5.0",
     "@zag-js/utils": "^1.5.0",
-    "nanoid": "^5.1.5"
+    "nanoid": "^5.1.5",
+    "receptor": "^2.2.1"
+  },
+  "devDependencies": {
+    "rolldown": "1.0.0-beta.7"
   }
 }
