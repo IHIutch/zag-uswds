@@ -1,5 +1,7 @@
 import type { CharacterCountSchema } from './character-count.types'
 import { createMachine } from '@zag-js/core'
+import * as dom from './character-count.dom'
+// import
 // import { debounce } from '@zag-js/utils' // Assuming Zag provides debounce
 
 // function calculateStatusText(currentValue: string, maxLength: number): string {
@@ -20,9 +22,8 @@ import { createMachine } from '@zag-js/core'
 export const machine = createMachine<CharacterCountSchema>({
   props({ props }) {
     return {
-      id: props.id || 'character-count',
-      statusSrDebounce: 1000,
-      maxLength: 100,
+      maxLength: Infinity,
+      // value: 0,
       ...props,
     }
   },
@@ -32,7 +33,11 @@ export const machine = createMachine<CharacterCountSchema>({
     return 'valid'
   },
 
-  // context({ prop }) {
+  context({ prop, bindable }) {
+    return {
+      charCount: bindable(() => ({ defaultValue: 0 })),
+      // value: bindable(() => ({ defaultValue: 0 }))
+    }
   //   // const initialValue = prop('value') ?? prop('defaultValue') ?? ''
   //   // const initialStatus = calculateStatusText(initialValue, prop('maxLength'))
   //   return {
@@ -57,7 +62,7 @@ export const machine = createMachine<CharacterCountSchema>({
   //     srStatusText: initialStatus, // Initialize srStatusText with the initial status
   //     debouncedSetSrTextFn: undefined,
   //   }
-  // },
+  },
 
   // computed: {
   //   charCount: ctx => ctx.value.length,
@@ -93,27 +98,69 @@ export const machine = createMachine<CharacterCountSchema>({
   //   },
   // },
 
+  watch({ track, action, prop, context }) {
+    track([() => context.get('charCount')], () => {
+      // console.log("count changed", context.get("charCount"))
+      action(['toggleState'])
+    })
+  },
+
   states: {
     valid: {
       on: {
-        INPUT: { target: 'invalid', actions: ['countCharacters'] },
+        INPUT: { actions: ['countCharacters'] },
+        INVALID: { target: 'invalid' },
       },
     },
     invalid: {
       on: {
-        INPUT: { target: 'invalid', actions: ['countCharacters'] },
+        INPUT: { actions: ['countCharacters'] },
+        VALID: { target: 'valid' },
       },
     },
   },
 
   implementations: {
     actions: {
-      countCharacters({ scope }) {
+      countCharacters({ context, scope, prop }) {
         // eslint-disable-next-line no-console
-        console.log({ scope })
+        const input = dom.getInputEl(scope) as HTMLInputElement | HTMLTextAreaElement | null
+        const charCount = (input?.value || '').length
+        // const maxLength = prop('maxLength')
+        // console.log('countChars', {
+        //   charCount,
+        //   maxLength
+        // })
+        context.set('charCount', () => charCount)
+      },
+
+      toggleState({ context, send, prop }) {
+        const charCount = context.get('charCount')
+        const maxLength = prop('maxLength')
+        if (charCount > maxLength) {
+          // console.log("invalid")
+          send({ type: 'INVALID' })
+        } else {
+          // console.log("valid")
+          send({ type: 'VALID' })
+        }
+
+        // setState({scope, send, prop }) {
+        //   const input = dom.getInputEl(scope) as HTMLInputElement | HTMLTextAreaElement | null
+        //   const charCount = (input?.value || '').length
+        //   const maxLength = prop('maxLength') || Infinity
+
+        //   if (charCount > maxLength) {
+        //     console.log("invalid")
+        //     send({ type: 'INVALID' })
+        //   } else {
+        //     console.log("valid")
+        //     send({ type: 'VALID' })
+        //   }
+        // }
       },
     },
-  },
+  }
 
   // implementations: {
   // effects: {

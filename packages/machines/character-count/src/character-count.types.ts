@@ -118,13 +118,15 @@ interface PrivateContext {
 export type CharacterCountMachineContext = PublicContext & PrivateContext
 
 export interface CharacterCountSchema {
-  props: RequiredBy<CharacterCountProps, 'maxLength' | 'statusSrDebounce' | 'id'>
-  // context: CharacterCountMachineContext
+  props: RequiredBy<CharacterCountProps, 'maxLength'>
+  context: {
+    charCount: number
+  }
   // state: 'idle' // The machine might have a very simple state or just rely on context.
   state: 'valid' | 'invalid'
-  action: 'countCharacters'
+  action: 'countCharacters' | 'toggleState'
   event: {
-    type: 'INPUT'
+    type: 'INVALID' | 'VALID' | 'INPUT'
   }
 }
 

@@ -59,13 +59,13 @@ export function connect<T extends PropTypes>(
         // 'placeholder': ctx.placeholder,
         // 'value': ctx.value,
         // 'aria-invalid': ctx.isInvalid,
-        'data-invalid': isInvalid ? '' : undefined,
+        'data-invalid': isInvalid ? 'true' : undefined,
         // Do not add 'maxLength' here to allow typing over limit, matching Alpine behavior
         // onChange(event) {
         //   send({ type: '', value: event.currentTarget.value, src: 'input.onChange' })
         // },
-        onInput(event) { // More responsive for immediate feedback
-          send({ type: 'INPUT', value: event.currentTarget.value })
+        onInput() {
+          send({ type: 'INPUT' })
         },
       })
     },

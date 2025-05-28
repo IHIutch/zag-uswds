@@ -24,6 +24,7 @@
     "@playwright/test": "^1.51.1",
     "eslint": "^9.24.0",
     "playwright": "^1.39.0",
+    "tsdown": "^0.12.4",
     "turbo": "^2.4.4"
   }
 }

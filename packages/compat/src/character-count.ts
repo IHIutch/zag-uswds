@@ -10,89 +10,78 @@ export class CharacterCount extends Component<characterCount.Props, characterCou
     initMachine(context: characterCount.Props): VanillaMachine<CharacterCountSchema> {
         return new VanillaMachine(characterCount.machine, {
             ...context,
-            role: this.content.getAttribute('role') === 'alertdialog' ? 'alertdialog' : 'dialog',
-            closeOnEscape: !this.content.hasAttribute('data-static'),
-            closeOnInteractOutside: !this.content.hasAttribute('data-static'),
-            initialFocusEl: () => this.closeTriggers[0] || this.content,
         })
     }
 
     initApi() {
-        return modal.connect(this.machine.service, normalizeProps)
+        return characterCount.connect(this.machine.service, normalizeProps)
     }
 
     render() {
-        spreadProps(this.rootEl, this.api.getTriggerProps())
+        spreadProps(this.rootEl, this.api.getRootProps())
 
-        this.renderPositioner(this.positioner)
-        this.renderBackdrop(this.backdrop)
-        this.renderContent(this.content)
+        if (this.label) {
+            this.renderLabel(this.label)
+        }
+        this.renderInput(this.input)
+        this.renderStatus(this.status)
+        this.renderSrStatus(this.srStatus)
 
-        this.closeTriggers.forEach((closeTriggerEl) => {
-            this.renderCloseTrigger(closeTriggerEl)
-        })
     }
 
-    private get backdrop() {
-        const value = this.rootEl.getAttribute('data-target')
-        if (!value)
-            throw new Error('Expected value to be defined')
-
-        const backdropEl = document.querySelector<HTMLElement>(`[data-part="modal-backdrop"][data-value="${value}"]`)
-        if (!backdropEl)
-            throw new Error('Expected backdropEl to be defined')
-        return backdropEl
+    private get label() {
+        return this.rootEl.querySelector<HTMLElement>(`[data-part="character-count-label"]`)
     }
 
-    private get positioner() {
-        const value = this.rootEl.getAttribute('data-target')
-        if (!value)
-            throw new Error('Expected value to be defined')
-
-        const positionerEl = document.querySelector<HTMLElement>(`[data-part="modal-positioner"][data-value="${value}"]`)
-        if (!positionerEl)
-            throw new Error('Expected positionerEl to be defined')
-        return positionerEl
+    private get input() {
+        const inputEl = this.rootEl.querySelector<HTMLInputElement>(`[data-part="character-count-input"]`)
+        if (!inputEl)
+            throw new Error('Expected inputEl to be defined')
+        return inputEl
     }
 
-    private get content() {
-        const contentEl = this.positioner.querySelector<HTMLElement>(`[data-part="modal-content"]`)
-        if (!contentEl)
-            throw new Error('Expected contentEl to be defined')
-        return contentEl
+    private get status() {
+        const statusEl = this.rootEl.querySelector<HTMLElement>(`[data-part="character-count-status"]`)
+        if (!statusEl)
+            throw new Error('Expected statusEl to be defined')
+        return statusEl
     }
 
-    private get closeTriggers() {
-        return Array.from(this.content.querySelectorAll<HTMLButtonElement>(`[data-part="modal-close-trigger"]`))
+    private get srStatus() {
+        const srStatusEl = this.rootEl.querySelector<HTMLElement>(`[data-part="character-count-sr-status"]`)
+        if (!srStatusEl)
+            throw new Error('Expected srStatusEl to be defined')
+        return srStatusEl
     }
 
-    private renderBackdrop(backdropEl: HTMLElement) {
-        spreadProps(backdropEl, this.api.getBackdropProps())
+    private renderLabel(labelEl: HTMLElement) {
+        spreadProps(labelEl, this.api.getLabelProps())
     }
 
-    private renderPositioner(positionerEl: HTMLElement) {
-        spreadProps(positionerEl, this.api.getPositionerProps())
+    private renderInput(inputEl: HTMLElement) {
+        spreadProps(inputEl, this.api.getInputProps())
     }
 
-    private renderContent(contentEl: HTMLElement) {
-        spreadProps(contentEl, this.api.getContentProps())
+    private renderStatus(statusEl: HTMLElement) {
+        spreadProps(statusEl, this.api.getStatusProps())
     }
 
-    private renderCloseTrigger(closeTriggerEl: HTMLButtonElement) {
-        spreadProps(closeTriggerEl, this.api.getCloseTriggerProps())
+    private renderSrStatus(srStatusEl: HTMLElement) {
+        spreadProps(srStatusEl, this.api.getSrStatusProps())
     }
 }
 
-export function modalInit() {
-    document.querySelectorAll<HTMLElement>('[data-part="modal-trigger"]').forEach((targetEl) => {
-        const modal = new Modal(targetEl, {
+export function characterCountInit() {
+    document.querySelectorAll<HTMLElement>('[data-part="character-count-root"]').forEach((targetEl) => {
+        const characterCount = new CharacterCount(targetEl, {
             id: nanoid(),
+            maxLength: 25
         })
-        modal.init()
+        characterCount.init()
     })
 }
 
 if (typeof window !== 'undefined') {
-    window.Modal = Modal
-    window.modalInit = modalInit
+    window.CharacterCount = CharacterCount
+    window.characterCountInit = characterCountInit
 }

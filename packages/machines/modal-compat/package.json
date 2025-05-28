@@ -12,7 +12,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rolldown -c rolldown.config.ts",
+    "build": "tsdown",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
@@ -26,9 +26,5 @@
     "@zag-js/remove-scroll": "^1.5.0",
     "@zag-js/types": "^1.5.0",
     "@zag-js/utils": "^1.5.0"
-  },
-  "devDependencies": {
-    "rolldown": "1.0.0-beta.10",
-    "rolldown-plugin-dts": "^0.13.6"
   }
 }
