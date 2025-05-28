@@ -1,5 +1,5 @@
 {
-  "name": "@uswds-tailwind/modal-compat",
+  "name": "@uswds-tailwind/character-count-compat",
   "type": "module",
   "version": "0.0.3",
   "exports": {
@@ -8,12 +8,13 @@
       "import": "./dist/index.js"
     }
   },
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "rolldown -c rolldown.config.ts",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
