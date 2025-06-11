@@ -1,6 +1,5 @@
 import type { CharacterCountSchema } from '@uswds-tailwind/character-count-compat'
 import * as characterCount from '@uswds-tailwind/character-count-compat'
-import { nanoid } from 'nanoid'
 import { Component } from './component'
 import { VanillaMachine } from './lib/machine'
 import { normalizeProps } from './normalize-props'
@@ -26,7 +25,6 @@ export class CharacterCount extends Component<characterCount.Props, characterCou
         this.renderInput(this.input)
         this.renderStatus(this.status)
         this.renderSrStatus(this.srStatus)
-
     }
 
     private get label() {
@@ -74,8 +72,15 @@ export class CharacterCount extends Component<characterCount.Props, characterCou
 export function characterCountInit() {
     document.querySelectorAll<HTMLElement>('[data-part="character-count-root"]').forEach((targetEl) => {
         const characterCount = new CharacterCount(targetEl, {
-            id: nanoid(),
-            maxLength: 25
+            id: targetEl.id || 'character-count',
+            maxLength: 25,
+            getStatusText: (count, max) => {
+                const diff = Math.abs(max - count);
+                const characters = diff === 1 ? 'character' : 'characters';
+                const guidance =
+                    count === 0 ? 'allowed' : count > max ? 'over limit' : 'left';
+                return `${diff} ${characters} ${guidance}`;
+            },
         })
         characterCount.init()
     })

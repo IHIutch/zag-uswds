@@ -37,8 +37,9 @@ export function spreadProps(node: HTMLElement, attrs: Attrs): () => void {
         if (value != null) {
             if (['value', 'checked', 'htmlFor'].includes(attrName)) {
                 ; (node as any)[attrName] = value // Using 'any' here because TypeScript can't narrow the type based on the array check
-            }
-            else {
+            } else if (attrName.toLowerCase() === 'textcontent') {
+                node.textContent = value;
+            } else {
                 node.setAttribute(attrName.toLowerCase(), value)
             }
             return

@@ -8,6 +8,6 @@ export const getSrStatusId = (ctx: Scope) => ctx.ids?.srStatus ?? `characterCoun
 
 export const getRootEl = (ctx: Scope) => ctx.getById(getRootId(ctx))
 export const getLabelEl = (ctx: Scope) => ctx.getById(getLabelId(ctx))
-export const getInputEl = (ctx: Scope) => ctx.getById(getInputId(ctx))
+export const getInputEl = (ctx: Scope) => ctx.getById<HTMLInputElement | HTMLTextAreaElement>(getInputId(ctx))
 export const getStatusEl = (ctx: Scope) => ctx.getById(getStatusId(ctx))
 export const getSrStatusEl = (ctx: Scope) => ctx.getById(getSrStatusId(ctx))
