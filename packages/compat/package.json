@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@uswds-tailwind/character-count-compat": "workspace:*",
+    "@uswds-tailwind/accordion-compat": "workspace:*",
     "@uswds-tailwind/modal-compat": "workspace:*",
     "@zag-js/core": "^1.18.3",
     "@zag-js/store": "^1.18.3",
